@@ -1,82 +1,483 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
-"http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!– 启用 WebApp 全屏模式 –>
+<meta name=”apple-mobile-web-app-capable” content=”yes” />
+
+<!– uc强制竖屏 –>
+<meta name=”screen-orientation” content=”portrait”>
+
+<!– UC强制全屏 –>
+<meta name=”full-screen” content=”yes”>
+
+<!– UC应用模式 –>
+<meta name=”browsermode” content=”application”>
+
+<!– QQ强制竖屏 –>
+<meta name=”x5-orientation” content=”portrait”>
+
+<!– QQ强制全屏 –>
+<meta name=”x5-fullscreen” content=”true”>
+
+<!– QQ应用模式 –>
+<meta name=”x5-page-mode” content=”app”>
+<meta name=”viewport” content=”initial-scale=1, user-scalable=0, minimal-ui” charset=”UTF-8″>
+
+<meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<title>博客中国</title>
+<link rel="stylesheet" href="https://m.blogchina.com/www/static/blogCss/h_public.css">
+<link rel="stylesheet" href="https://m.blogchina.com/www/static/blogCss/h_index.css?t=1649308983">
+<link rel="stylesheet" href="https://m.blogchina.com/www/static/blogCss/swiper.min.css">
+<link rel="stylesheet" href="https://m.blogchina.com/www/static/header/headerM.css?t=21">
+<link rel="stylesheet" href="https://m.blogchina.com/www/static/blogCss/iconfont.css?t=2">
+<style>
+    .swiper-container { width: 100%;  height: 100%;  position: absolute;   top:0 }
+    .swiper-slide {text-align: center;font-size: 18px; background: #fff; display: -webkit-box;display: -ms-flexbox; display: -webkit-flex;
+        display: flex; -webkit-box-pack: center; -ms-flex-pack: center; -webkit-justify-content: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center;
+        -webkit-align-items: center; align-items: center;  }
+    .swiper-pagination{text-align: right;padding-right: 0.2rem;bottom: 0!important;}
+    .swiper-slide h2{position: absolute;bottom: 0px;left:0px;width: 100%;padding:0.3rem 0.3rem 0.2rem;text-align: left; font-size: 0.3rem;font-weight: normal;display: flex;
+        align-items: center;
+        background: -webkit-linear-gradient(top, rgba(72,76,97,0) 0%, rgba(0,0,0,1) 100%);
+        background: linear-gradient(to bottom, rgba(72,76,97,0) 0%, rgba(0,0,0,1)100%);color: #fff}
+    .swiper-pagination-bullet{ width: 6px;height: 6px;background: #fff;opacity: 0.5}
+    .swiper-pagination-bullet-active { background: #4285F4 ;width: 12px;height: 6px;border-radius: 6px;opacity: 1}
+</style>
+
+
+<script src="https://m.blogchina.com/www/static/blogJs/jquery.min.js?t=2021"></script>
+<script src="https://m.blogchina.com/www/static/blogJs/spin.min.js?t=2"></script>
+<script src="https://m.blogchina.com/www/static/header/header.js"></script>
+<script src="https://m.blogchina.com/www/static/js/common.js?t=20210111"></script>
+<script src="https://m.blogchina.com/www/static/js/jweixin-1.0.0.js?t=20210111"></script>
+<script src="https://m.blogchina.com/www/static/js/detailforward.js?t=202101139"></script>
+<script>
+  var deviceWidth = document.documentElement.clientWidth;
+  var dpr=window.devicePixelRatio;
+  document.documentElement.setAttribute('data-dpr',dpr );
+  if(deviceWidth > 750) deviceWidth = 750;
+  document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+
+</script>
+
+
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?095985877fc79b795111ef380b4e6d79";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>  
+</head>
+<body class="h_body">
+    <div class="h_header">
+        <!-- 登录 -->
+		<div class="h_top">
+    <div class="h_logo">
+        <span class="iconfont icon-logo"></span>
+        <span class="iconfont icon-bo"></span>
+        <span class="iconfont icon-ke"></span>
+        <span class="iconfont icon-zhong"></span>
+        <span class="iconfont icon-guo"></span>
+    </div>
+    <!-- 未登录-->
+    <div class="h_logout" style="display: none"><a href="https://post.blogchina.com/sign/in?from=https://m.blogchina.com/home/index" class="iconfont icon-login"></a></div>
+    <!-- 已登录-->
+    <div class="h_login" style="display: none">
+        <span class="h_login_avatar"></span>
+        <span class="h_king" style="display: none"></span>
+        <ul class="dropdown-menu" role="menu" style="display: none;">
+            <li class="mine"><a href=""><span class="iconfont icon-people"></span>我的专栏</a></li>
+            <li class="userathlets"><a href="https://post.blogchina.com/writer/create"><span class="iconfont icon-pencil"></span>撰写文章</a></li>
+            <li class=" rightzlgl"><a href="https://post.blogchina.com/post/public"><span class="iconfont icon-manage"></span>专栏管理</a></li> 
+            <li> <a href="https://post.blogchina.com/setting/columnupgrade"><span class="iconfont icon-king1"></span>专栏升级</a> </li>
+            <li class=" rightnotice"><a href="https://post.blogchina.com/notification?unread=y"><span class="iconfont icon-news"></span>通知</a></li>
+            <li class=" setting"><a href="https://post.blogchina.com/setting/index"><span
+                    class="iconfont icon-setting"></span>设置</a></li>
+            <li class=" signup"><a href="javascript:void(0)"><span class="iconfont icon-logout"></span>退出</a></li>
+        </ul>
+    </div>
+</div>
+
+
+   
+		<!-- 登录结束-->
+		
+        <!-- 导航条 -->
+		<!-- <div class="h_nablist">
+    <ul>
+        <li><a  href="https://m.blogchina.com/home/index">首页</a></li>
+        <li><a target="_self" href="https://m.blogchina.com/home/channel?pindao=2" id="channel2">前沿科技</a></li>
+        <li><a target="_self" href="https://m.blogchina.com/home/channel?pindao=3" id="channel3">网络研究</a></li>
+        <li><a class="channel" href="https://chuban.blogchina.com">出版中心</a></li>
+        <li><a href="https://zt.blogchina.com/2017zt/hlwkss/">互联网口述历史</a></li>
+        <li class="h_select"><a href="https://df.blogchina.com/">数字论坛</a></li>
+           <li><a target="_self" href="https://m.blogchina.com/home/channel?pindao=12" id="channel12">诗歌频道</a></li>
+        <li><a href="https://tuijian.blogchina.com/list/dissertationcenter/flag/6">专题中心</a></li> 
+      
+     
+    </ul>
+    <div class="h_nab"><span class="iconfont icon-list"></span></div>
+</div> -->
+
+<div class="h_nablist">
+    <ul>
+        <li><a  href="https://m.blogchina.com/home/index">首页</a></li>
+        <li><a target="_self" href="https://m.blogchina.com/home/channel?pindao=2" id="channel2">前沿科技</a></li>
+        <li><a target="_self" href="https://m.blogchina.com/home/channel?pindao=3" id="channel3">网络研究</a></li>
+        <li><a href="https://zt.blogchina.com/2017zt/hlwkss/">互联网口述历史</a></li>
+        <li class="h_select"><a href="https://df.blogchina.com/">数字论坛</a></li>
+        <li><a href="https://tuijian.blogchina.com/list/dissertationcenter/flag/6">专题中心</a></li> 
+        <li><a target="_self" href="https://m.blogchina.com/home/channel?pindao=12" id="channel12">诗歌频道</a></li>
+        <li><a class="channel" href="https://chuban.blogchina.com">出版中心</a></li>
  
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>HTML blog</title>
-		<link href="css/blog.css" rel="stylesheet" type="text/css" />
-	</head>
-	<body>
-		<div class="container">
-			<div class="header">
-				<h1>KSC 工作室</h1>
-				<p>http://blog.csdn.net/sunshumin</p>
-			</div>
-			<div class="content">
-				<div class="navBar">
-					<ul>
-						<li><a href="#">首页</a></li>
-						<li><a href="#">博客</a></li>
-						<li><a href="#">文章</a></li>
-						<li><a href="#">帮助</a></li>
-					</ul>
-				</div>
-				<div class="sidebarLeft">
-					<div class="frame">
-						<div class="title">个人资料</div>
-						<div style="text-align: center;">
-							<img src="img/psb.jpg"  width="80px"/>
-							<p style="font-size: 1.2em;color: #aaf;font-weight: bold;">黄某某</p>
-						</div>
-					</div>
-					<div class="frame">
-						<div class="title">博客文章</div>
-						<ul class="list">
-							<li>HTML 简单介绍</li>
-							<li>HTML 基本概念</li>
-							<li>HTML 文档结构</li>
-							<li>HTML 编辑器介绍</li>
-							<li>基本元素介绍</li>
-							<li>超链接图片</li>
-							<li>图片元素</li>
-						</ul>
-					</div>
-				</div>
-				<div class="sidebarRight">
-					<div class="frame">
-						<div class="title">我的好友</div>
-						<ul class="list">
-							<li>张琨</li>
-							<li>黄超</li>
-							<li>戴敏</li>
-							<li>李梅</li>
-							<li>刘娜</li>
-							<li>王月</li>
-						</ul>
-					</div>
-					<div class="frame">
-						<div class="title">友情链接</div>
-						<ul class="list">
-							<li>张琨的博客</li>
-							<li>黄超的博客</li>
-							<li>戴敏的博客</li>
-							<li>李梅的博客</li>
-							<li>刘娜的博客</li>
-							<li>王月的博客</li>							
-						</ul>
-					</div>
-					<div class="frame">
-						<div class="title">訪客统计</div>
-						<ul class="list">
-							<li>总共訪问量：21310 人</li>
-							<li>今日訪问量：    340 人</li>
-						</ul>
-					</div>
-				</div>
-				<div class="mainContent">
-					<div class="frame">
-						<div class="title">博文</div>
-						<div style="padding: 5px;">
-							<h3>大家好。这是我的第一篇博客</h3>
-							<p style="text-indent: 2em;">我已经在BLOG安家了，欢迎你“常过来看看”。大家多多交流哦。
+      
+     
+    </ul>
+    <div class="h_nab"><span class="iconfont icon-list"></span></div>
+</div>  
+		<!-- 导航条结束 -->
+    </div>
+    <div class="h_content">
+        <!-- swiper 轮播区域-->
+        <div class="h_swiper">
+            <div class="h_swiper0">
+                <!-- Swiper -->
+                <div class="swiper-container">
+                <div class="swiper-wrapper">
+                        
+                        <div class="swiper-slide"><a id="graphics_link" href="javascript:;"><img id='graphics_pic' src="" alt="">
+                            <h2 id='graphics_title'></h2></a>
+                        </div>
+                    
+                     
+                </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+                    <!-- Add Arrows -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- 左边区域-->
+        <div class="h_con_left h_clear">
+            <!-- 最新头条-->
+            <div  class="h_news ">
+                <ul id='articlelist'>
+                 
+                                            <li class="h_news_list articlenumber" bid="475889316"> 
+                            <div class="h_news_con">
+                                <a href="http://liukuang.blogchina.com/475889316.html">
+                                    <h2>奈雪的茶“快跑”，喜茶“慢行”</h2>
+                                    <div class="h_news_l">
+                                        <p>高端新式茶饮品牌齐降价，蜜雪冰城女孩也喝得起奈雪的茶、喜茶了。以价格为标准，新式茶饮分为低、中、高三个段位，比如喜茶、奈雪的茶的产品价格普遍二十元以上属于高端市场，茶百道、茶颜悦色的产品价格大多十几元盘踞中端市场，益禾堂、蜜雪冰城的产品价格则低至个位数主打下沉市场。对于消费者来说，高端茶饮品牌降价是大好消息，因为同一价格带可选择的饮品多了。对中低端茶饮品牌来说，高端茶饮拓宽价格带，对标中低价饮品抢...</p>
+                                        <div class="h_news_img" style="background-image: url(https://images.blogchina.com//v5_ogc/624e5b7fc12241649302399.jpg);"> 
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="h_author h_flexCenter">
+                                    <a href="https://liukuang.blogchina.com"><span class="h_flexCenter">刘旷</span></a>
+                                    <div class="h_data">
+                                        参与<span>4391</span>
+                                        评论<span>0</span>
+                                        支持<span>0</span></div> 
+                                    </div>
+                                </div> 
+                            
+                        </li>
+                                            <li class="h_news_list articlenumber" bid="660496548"> 
+                            <div class="h_news_con">
+                                <a href="http://zhun.blogchina.com/660496548.html">
+                                    <h2>国内休闲食品迎来“涨价潮”</h2>
+                                    <div class="h_news_l">
+                                        <p> 薯片对于喜爱膨化食品的吃货们来说，有着无法阻挡的魅力，但当价格也逐渐膨胀时，消费者的热情还能保持吗？近日，一份《乐事薯片价格调整通知函》在网上流传，百事食品决定从2022年4月15日起，对供应直供渠道销售的部分乐事袋装薯片和乐事大波浪薯片产品的供应价格进行调整优化。 虽然事件还未得到证实，但是一石激起千层浪，引发了网友的热议。其实这不是百事第一次陷入“涨价”风波，2019年网上也曾流传过一张类似的调整通知函，...</p>
+                                        <div class="h_news_img" style="background-image: url(https://images.blogchina.com//v5_ogc/624e5b366e3391649302326.jpg);"> 
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="h_author h_flexCenter">
+                                    <a href="https://zhun.blogchina.com"><span class="h_flexCenter">链准准</span></a>
+                                    <div class="h_data">
+                                        参与<span>4294</span>
+                                        评论<span>0</span>
+                                        支持<span>0</span></div> 
+                                    </div>
+                                </div> 
+                            
+                        </li>
+                                            <li class="h_news_list articlenumber" bid="509435564"> 
+                            <div class="h_news_con">
+                                <a href="http://nameyuan.blogchina.com/509435564.html">
+                                    <h2>Zara们忙着收废品，曾年赚3万亿</h2>
+                                    <div class="h_news_l">
+                                        <p>智利有一座沙漠，变成了快时尚服装垃圾场。 有“世界干极”之称的智利阿塔卡马沙漠里，出现了一座由废旧衣物堆积起来的高山。每年约有 5.9万吨快时尚服装运往智利，其中至少有3.9万吨衣服，最后被当作垃圾扔进这个沙漠。这些衣物大多在亚洲生产，销往欧美，最后被当作废品运往智利。 这些衣物很难生物降解，并且含有化学产品，和塑料、轮胎制品一样有毒。垃圾处理厂会拒绝接手填埋，最后就被丢弃在了露天沙...</p>
+                                        <div class="h_news_img" style="background-image: url(https://images.blogchina.com//v5_ogc/624e5b10d32051649302288.jpg);"> 
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="h_author h_flexCenter">
+                                    <a href="https://nameyuan.blogchina.com"><span class="h_flexCenter">李千里</span></a>
+                                    <div class="h_data">
+                                        参与<span>4172</span>
+                                        评论<span>0</span>
+                                        支持<span>0</span></div> 
+                                    </div>
+                                </div> 
+                            
+                        </li>
+                                            <li class="h_news_list articlenumber" bid="501046956"> 
+                            <div class="h_news_con">
+                                <a href="http://shudada.blogchina.com/501046956.html">
+                                    <h2>特步蹚进元宇宙浑水，赛博韭菜还够用吗？</h2>
+                                    <div class="h_news_l">
+                                        <p>全球各大运动品牌还在不断涌入元宇宙，用数字藏品来为自己开疆拓土。 3月21日，特步举办新品发布会，推出一款名为“160X-Metaverse”的数字藏品跑鞋，至此，国产运动品牌前三名不约而同地向元宇宙迈出了相似的第一步。据不完全统计，耐克、阿迪、彪马、安德玛、亚瑟士、New Balance……包括国货品牌安踏、李宁以及最新加入的特步，已经通过联名、合作、收购一系列动作在元宇宙内“大展拳脚”...</p>
+                                        <div class="h_news_img" style="background-image: url(https://images.blogchina.com//v5_ogc/624e5aa0eba631649302176.jpg);"> 
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="h_author h_flexCenter">
+                                    <a href="https://shudada.blogchina.com"><span class="h_flexCenter">刘枫</span></a>
+                                    <div class="h_data">
+                                        参与<span>4235</span>
+                                        评论<span>0</span>
+                                        支持<span>0</span></div> 
+                                    </div>
+                                </div> 
+                            
+                        </li>
+                                            <li class="h_news_list articlenumber" bid="660430500"> 
+                            <div class="h_news_con">
+                                <a href="http://bokekeji.blogchina.com/660430500.html">
+                                    <h2>小芯片是未来，但互连仍然是战场</h2>
+                                    <div class="h_news_l">
+                                        <p>近年来，汽车芯片短缺现象一直阴霾不散，这不仅严重制约汽车业产能，使得汽车延期交付，还导致车企不得不为新车减配，有的新车甚至卖出一年后才能补装芯片。 苹果公司发布的M1 Ultra再次让爱好者和分析师感到惊讶，这是M1 Max的一种变体，可以有效地将两个芯片融合为一个。结果是双芯片设计被软件视为单个硅片。英伟达在2022年GPU技术大会上发布了类似的消息，首席执行官黄仁勋宣布...</p>
+                                        <div class="h_news_img" style="background-image: url(https://images.blogchina.com//v5_ogc/624e5a398345b1649302073.jpg);"> 
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="h_author h_flexCenter">
+                                    <a href="https://bokekeji.blogchina.com"><span class="h_flexCenter">博客科技</span></a>
+                                    <div class="h_data">
+                                        参与<span>4364</span>
+                                        评论<span>0</span>
+                                        支持<span>0</span></div> 
+                                    </div>
+                                </div> 
+                            
+                        </li>
+                                            <li class="h_news_list articlenumber" bid="643653284"> 
+                            <div class="h_news_con">
+                                <a href="http://wuduidui.blogchina.com/643653284.html">
+                                    <h2>新中式穿搭为什么火了？</h2>
+                                    <div class="h_news_l">
+                                        <p>「中国风」在服装设计领域风行已久，而今「新中式」又在穿搭届扶摇直上。公开数据显示，2021年下半年，小红书上「新中式穿搭」笔记发布量环比增长超26倍。一搜「新中式穿搭」，多得是穿着盘扣立领、刺绣提花、水墨竹叶的弄潮儿。 什么是「新中式」？直到 2002 年，「新中式」一词才正式出现在知网文章的标题和主题里。目前业内有关「新中式」设计较为基本的的定义为：中国传统风格文化在新时代的全...</p>
+                                        <div class="h_news_img" style="background-image: url(https://images.blogchina.com//v5_ogc/624e59efc565d1649301999.jpg);"> 
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="h_author h_flexCenter">
+                                    <a href="https://wuduidui.blogchina.com"><span class="h_flexCenter">吴怼怼</span></a>
+                                    <div class="h_data">
+                                        参与<span>4550</span>
+                                        评论<span>0</span>
+                                        支持<span>0</span></div> 
+                                    </div>
+                                </div> 
+                            
+                        </li>
+                                            <li class="h_news_list articlenumber" bid="635264676"> 
+                            <div class="h_news_con">
+                                <a href="http://bokekeji.blogchina.com/635264676.html">
+                                    <h2>AMD、高通宣布的收购计划都聚焦软件</h2>
+                                    <div class="h_news_l">
+                                        <p>AMD和高通都在周一宣布了收购，这将有助于其多元化进入软件行业。 AMD计划以19亿美元的价格收购芯片和软件初创公司PensandoSystems，在完成其史上规模最大的交易不久后再度推进并购策略。 同一天，高通也宣布取得专注自驾车软件设计开发的Arriver。MarketWatch分析，两家公司核心事业芯片制造的成长前景受到市场分析师质疑后，不约而同朝着掌握更多软件技术的多角化方向布局。 AMD周一...</p>
+                                        <div class="h_news_img" style="background-image: url(https://images.blogchina.com//v5_ogc/624e58eb7a6651649301739.jpg);"> 
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="h_author h_flexCenter">
+                                    <a href="https://bokekeji.blogchina.com"><span class="h_flexCenter">博客科技</span></a>
+                                    <div class="h_data">
+                                        参与<span>4264</span>
+                                        评论<span>0</span>
+                                        支持<span>0</span></div> 
+                                    </div>
+                                </div> 
+                            
+                        </li>
+                                            <li class="h_news_list articlenumber" bid="492658852"> 
+                            <div class="h_news_con">
+                                <a href="http://ola.blogchina.com/492658852.html">
+                                    <h2>OLA联盟的九大金刚</h2>
+                                    <div class="h_news_l">
+                                        <p> OLA由24位院士和阿里、百度、京东、小米、海尔、华为、中国电信、中国信通院、中国移动等联合发起，截止2021年12月，OLA已批准入会的成员单位共128家，其中：常务副理事长单位9家，副理事长单位18家，理事单位24家，普通会员单位77家。OLA由李毅中为首席顾问，倪光南院士，中国信息通信研究院院长余晓晖共同担任联席顾问、何积丰院士为学术委员会主任。 阿里巴巴(中国)有限公司阿里巴巴集团控股有限公司（简称：阿里巴巴集团）是...</p>
+                                        <div class="h_news_img" style="background-image: url(https://images.blogchina.com//v5_ogc/624e57f047dc81649301488.png);"> 
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="h_author h_flexCenter">
+                                    <a href="https://ola.blogchina.com"><span class="h_flexCenter">OLA联盟</span></a>
+                                    <div class="h_data">
+                                        参与<span>4489</span>
+                                        评论<span>0</span>
+                                        支持<span>0</span></div> 
+                                    </div>
+                                </div> 
+                            
+                        </li>
+                                            <li class="h_news_list articlenumber" bid="467493028"> 
+                            <div class="h_news_con">
+                                <a href="http://songguocaijing.blogchina.com/467493028.html">
+                                    <h2>3.0时代，共享电单车如何打好“涅槃”之战？</h2>
+                                    <div class="h_news_l">
+                                        <p>“骑着我心爱的小摩托，它永远不会堵车”毋庸置疑，共享电单车的出现解决了不少市民“最后一公里”的出行难题，一度成为国内部分市民的主要出行方式。但由于缺乏规范化管理，从2021年开始，很多城市的共享电单车一度面临被撤销的局面。随着时间的推移，共享电单车的处境在逐渐迎来改变。近期，笔者在长沙街头又发现了共享电单车的身影，骑着电单车上班、游玩的人不在少数。只是，与之前的区别在于，骑行的人纷纷戴上了头盔，电单车也都...</p>
+                                        <div class="h_news_img" style="background-image: url(https://images.blogchina.com//v5_ogc/624e570dea7d81649301261.jpg);"> 
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="h_author h_flexCenter">
+                                    <a href="https://songguocaijing.blogchina.com"><span class="h_flexCenter">松果财经</span></a>
+                                    <div class="h_data">
+                                        参与<span>4358</span>
+                                        评论<span>0</span>
+                                        支持<span>0</span></div> 
+                                    </div>
+                                </div> 
+                            
+                        </li>
+                                            <li class="h_news_list articlenumber" bid="492723876"> 
+                            <div class="h_news_con">
+                                <a href="http://benshoushe.blogchina.com/492723876.html">
+                                    <h2>5G消息让微信变“危”信？还是先活下去再说吧！ </h2>
+                                    <div class="h_news_l">
+                                        <p>5G消息已经正式商用了，这很好！什么是5G消息？撇开复杂拗口的技术术语，简单一句话：就是不需要安装APP，微信能干的事情，它都能干！也正是因为这个简单形象的场景比喻，让人产生一种5G消息是微信们的终结者的错觉。如果5G消息才进入商用阶段，而且还是个别服务商提供的阶段，就一直是这种调调，光是从用户体验角度，恐怕会让用户越来越失望。这恐怕也是一种不务实的开始。从推广炒作的角度来看，往...</p>
+                                        <div class="h_news_img" style="background-image: url(https://images.blogchina.com//v5_ogc/624e564def1c81649301069.jpg);"> 
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="h_author h_flexCenter">
+                                    <a href="https://benshoushe.blogchina.com"><span class="h_flexCenter">笨手蛇</span></a>
+                                    <div class="h_data">
+                                        参与<span>4490</span>
+                                        评论<span>0</span>
+                                        支持<span>0</span></div> 
+                                    </div>
+                                </div> 
+                            
+                        </li>
+                                     
+
+ 
+                </ul>
+                <div class="h_btn" style="margin-top: 0;" id="tishi"></div> 
+            </div>
+     </div>
+     <input  type="hidden" id='page' value=1 />
+    <div class="h_footer"><p>© Copyright 2001 - 2022 blogchina.com</p></div>
+    
+    <!-- 频道 -->
+    <div class="h_layer" style="display: none">
+        <div class="h_nav_title"><h2>频道管理</h2> <div class="h_close"><span class="iconfont icon-close"></span></div></div>
+        <ul class="h_nav_list">
+            <li class="no_bg">
+                <a href="https://age.blogchina.com/" target="_blank">5G</a>
+            </li>
+            <li class="no_bg">
+                <a href="https://shangye.blogchina.com/" target="_blank">商业智能</a>
+            </li>
+            <li class="no_bg">
+                <a href="https://smart.blogchina.com/" target="_blank">人工智能</a>
+            </li>
+            <li class="no_bg">
+                <a href="https://phone.blogchina.com/" target="_blank">智能手机</a>
+            </li>
+            <li class="no_bg">
+                <a href="https://heike.blogchina.com/" target="_blank">黑客</a>
+            </li>
+            <li class="no_bg">
+                <a href="https://shuju.blogchina.com/" target="_blank">大数据</a>
+            </li>
+            <li class="no_bg">
+                <a href="https://iot.blogchina.com/" target="_blank">物联网</a>
+            </li>
+            <li class="no_bg">
+                <a href="https://share.blogchina.com/" target="_blank">共享经济</a>
+            </li>
+            <li class="no_bg">
+                <a href="https://tansuo.blogchina.com/" target="_blank">天体探索</a>
+            </li>
+
+            <li class="no_bg">
+                <a href="https://liangzi.blogchina.com/" target="_blank">量子通讯</a>
+            </li>
+            <li class="no_bg">
+                <a href="https://zhicar.blogchina.com/" target="_blank">智能汽车</a>
+            </li>
+            <li class="no_bg">
+                <a href="https://jiqixuexi.blogchina.com/" target="_blank">机器学习</a>
+            </li>
+            <li class="no_bg">
+                <a href="https://qukuai.blogchina.com/" target="_blank">区块链</a>
+            </li>
+            <li class="no_bg">
+                <a href="https://yingjian.blogchina.com/" target="_blank">智能硬件</a>
+            </li>
+            <li class="no_bg">
+                <a href="https://jiaju.blogchina.com/" target="_blank">智能家居</a>
+            </li>
+            <li class="no_bg">
+                <a href="https://cunchu.blogchina.com/" target="_blank">生物存储</a>
+            </li>
+            <li class="no_bg">
+                <a href="https://vrr.blogchina.com/" target="_blank">AR/VR</a>
+            </li>
+            <li class="no_bg">
+                <a href="https://yunjisuan.blogchina.com/" target="_blank">云计算</a>
+            </li>
+            <li class="no_bg">
+                <a href="https://robot.blogchina.com/" target="_blank">机器人</a>
+            </li>
+            <li class="no_bg">
+                <a href="https://shejiao.blogchina.com/" target="_blank">社交媒体</a>
+            </li><li class="no_bg">
+            <a href="https://wangluozhili.blogchina.com/" target="_blank">网络治理</a>
+        </li>
+            <li class="no_bg">
+                <a href="https://venture.blogchina.com/" target="_blank">风险投资</a>
+            </li>
+            <li class="no_bg">
+                <a href="https://finatech.blogchina.com/" target="_blank">金融科技</a>
+            </li>
+            <li class="no_bg">
+                <a href="https://yiliao.blogchina.com/" target="_blank">医疗科技</a>
+            </li>
+        </ul>
+    </div> 
+    <!-- 频道结束 -->
+    
+     
+    <script src="https://m.blogchina.com/www/static/js/index.js?t=2023247"></script> 
+    
+    <!--<script src="https://m.blogchina.com/www/static/blogJs/swiper.min.js"></script>
+    <script>
+      let swiper = new Swiper('.swiper-container', {
+        spaceBetween: 30,
+        centeredSlides: true,
+        loop: true,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+      });
+    </script>-->
+  </body>
+</html>

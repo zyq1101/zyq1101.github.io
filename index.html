@@ -107,7 +107,7 @@
 </div>
 <canvas class="canvas" width="1820" height="905"></canvas>
 <p class="text" style="color: #8ef5ff;">
-    如果你的父母依旧辛苦 那你的长大就毫无意义.
+    如果你的父母依旧辛苦<br>那你的长大就毫无意义.
     <br/>
     <span id="span_dt_dt"></span>
 </p>
@@ -115,7 +115,7 @@
     function show_date_time() {
         window.setTimeout("show_date_time()", 1000);
 		//你俩在一起的那天
-        BirthDay = new Date("5/20/2022 00:00:00");
+        BirthDay = new Date("5/20/2022 01:00:00");
         today = new Date();
         timeold = (today.getTime() - BirthDay.getTime());
         sectimeold = timeold / 1000
